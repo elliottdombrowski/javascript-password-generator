@@ -26,19 +26,23 @@ function generatePassword() {
   //Declaring variables for/and prompting for password length between 8 and 128 characters
   var length = parseInt(prompt("What length?\nMust be between 8-128 characters."))
 
-  //Declaring variables for/and prompting for uppercase/lowercase characters
+  //Validates that input is valid.
+  if(isNaN(length) === true || length < 8 || length > 128) {
+    alert("Invalid.\nInput numbers between 8 & 128.")
+    console.log(length);
+    return null;
+  }
+
+
+  //Declaring variables for/and prompting for uppercase/lowercase, special, and number inputs.
   var lower = prompt("Include Lowercase?\nYes/No")
   var upper = prompt("Include Uppercase?\nYes/No")
-
-  //Declaring variables for/and prompting for special characters
   var special = prompt("Include Special Characters?\nYes/No")
-
-  //Declaring variables for numbers(1-9)
   var number = prompt("Include Numbers?\nYes/No")
 
 
   //If user input = yes, pull characters from respective set (Upper, Lower, Special, Numbers)
-  if(lower.toLowerCase() === "yes") {
+  if (lower.toLowerCase() === "yes") {
     characters += LOWER_SET
   }
 
